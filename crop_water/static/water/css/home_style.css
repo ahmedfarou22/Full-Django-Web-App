@@ -1,0 +1,112 @@
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+
+html,body {
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
+}
+body{
+  margin:0;
+  padding: 0;
+}
+.header{
+  margin-top: 50px;
+  width: 100%;
+  height: 1000px;
+
+ }
+.globalS{
+  margin:0px;
+  padding: 0px;
+        }
+
+.logo {
+  margin-top: 260px;
+  margin-left: -50px;
+      }
+
+
+.h1{
+  margin-top: 20px;
+  text-align: center;
+  font-family: "Cabin";
+  font-weight: 600;
+  font-size: 28px;
+  color: #61ce70;
+  text-transform: uppercase;
+  text-align: center;
+   }
+.about_us{
+  position: relative;
+  text-align: center;
+
+         }
+.p1{
+  text-align: center;
+  font-family: "Arial";
+  font-weight: 400;
+  font-size: 24px;
+  color: #565857;
+  margin-bottom: 60px;
+  /* margin-left: 400px; */
+   }
+
+
+
+.container{
+margin: auto auto;
+width: 80%;
+padding: 8px;
+          }
+
+.image {
+  width: 100%;
+  height: 1000px;
+}
+.toi{
+  position: absolute;
+  bottom: 247px;
+  left: 16px;
+  font-family: 'Merriweather';
+  font-size: 60px;
+  margin-left: 185px;
+  color: white;
+
+}
+
+
+.button:link, .button:visited {
+  background-color: #61ce70;
+  color: white;
+  padding: 11px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  position: absolute;
+  bottom: 247px;
+  left: 16px;
+  margin-left: 186px;
+  font-size: 23px;
+  border-radius: 25px;
+}
+
+.button:hover, .button:active {
+  background-color: #05dd80;
+}
+.p2{
+color: white;
+background-color: #61ce70;
+padding: 11px 40px;
+text-align: left;
+text-decoration: none;
+margin-left: 282px;
+font-size: 23px;
+margin-right: 310px;
+border-radius: 25px;
+
+}

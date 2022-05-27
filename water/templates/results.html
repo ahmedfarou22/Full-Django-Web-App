@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Successful Search</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= results Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="{% static 'water/img/resultsImg.jpg' %} " class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+
+            {% comment %} <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p> {% endcomment %}
+            <ul>
+                <h5>Crop</h5>
+              <li><i class="bi bi-check-circle"></i> {{crop}}</li>
+              
+              <h5>Coordinates</h5>
+              <li><i class="bi bi-check-circle"></i> {{coords}}</li>
+
+              <h5>Soil Type</h5>
+              <li><i class="bi bi-check-circle"></i> {{soil}}</li>
+
+              <h5>Region</h5>
+              <li><i class="bi bi-check-circle"></i> {{region}}</li>
+
+              <h5>Weather</h5>
+              <li><i class="bi bi-check-circle"></i> {{weather}}</li>
+
+              <h5>Temperature </h5>
+              <li><i class="bi bi-check-circle"></i> {{temp}}</li>
+
+              <h5>Water Requirement</h5>
+              <li><i class="bi bi-check-circle"></i> {{water_req}}</li>
+
+              <h5>Water Surplus</h5>
+              <li><i class="bi bi-check-circle"></i> {{surplus}}</li>
+            </ul>
+            <a href="{% url 'map' %}" class="btn-get-started">Search Again</a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End results Section -->
+
+
+{%endblock%}

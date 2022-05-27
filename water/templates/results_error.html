@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in" style="background-color:#E85671;">
+      <div class="container">
+        <h2>Unsuccessful Search</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= results Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="{% static 'water/img/eroor.jpg' %} " class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+
+            <p class="fst-italic">
+              There was an eroor in your search please go back to the map page and choose any cordinates in Egypt<br>
+              
+              <a href="{% url 'map' %}" class="btn-get-started">Search Again</a>
+
+            </p> 
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End results Section -->
+
+
+{%endblock%}

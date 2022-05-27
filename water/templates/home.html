@@ -1,0 +1,138 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block body %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex justify-content-center align-items-center">
+        <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+            <h1>Know Your<br>Water Usage</h1>
+            <h2>Using satalite imagiry we can <br>help you find your water usage</h2>
+            <a href="{% url 'usage' %}" class="btn-get-started">Get Started</a>
+        </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row">
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                        <img src="{% static 'water/img/img1.png' %}" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                        <h3>WHY ARE WE HERE?</h3>
+                        <p class="fst-italic">
+                            Our planet faces many obstacles in a rapidly evolving world that produces a great amount of waste. These obstacles threaten our planet as well as all its inhibitants, and one of these major obstacles is the overconsumpution of water.
+                        </p>
+                        <h3>OUR SOLUTION</h3>
+                        <p>
+                            It is reported that 70% of the consumable water is directed towards the agricultural sector, and 40% of that value is wasted during the process. Decreasing the surplus used would greatly help humans conserve water that might be difficult to come by in
+                            areas of the world that suffer from droughts.
+                        </p>
+                        <p>
+                            We aim to decrease the surplus by creating an app that will be used to determine how much surplus water is being used on a plot of land, and this will help farmers across the world to manage their water usage effectively
+                        </p>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End About Section -->
+
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts section-bg">
+            <div class="container">
+
+                <div class="row counters">
+
+                    <div class="col-lg-4 col-12 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="587" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Searches</p>
+                    </div>
+
+                    <div class="col-lg-4 col-12 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Team members</p>
+                    </div>
+
+                    <div class="col-lg-4 col-12 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Countries</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- ======= the team Section ======= -->
+    <section id="trainers" class="trainers">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            <h3 class="content text-center">Meet the team</h3>
+            <br><br><br>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+                <img src="{% static 'water/img/team/salem.jpg' %}" class="img-fluid" alt="">
+                <div class="member-content">
+                  <h4>Salem Salem</h4>
+                  <span>Backend Developer</span>
+                  <p>
+                    Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+                  </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+                <img src="{% static 'water/img/team/farouk.jpg' %}" class="img-fluid" alt="">
+                <div class="member-content">
+                  <h4>Ahmed Farouk</h4>
+                  <span>Frontend Developer</span>
+                  <p>
+                    Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
+                  </p>
+
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+                <img src="{% static 'water/img/team/bery.jpg' %}" class="img-fluid" alt="">
+                <div class="member-content">
+                  <h4>Mohamed Bery</h4>
+                  <span>Security Engineer</span>
+                  <p>
+                    Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img src="{% static 'water/img/team/kandil.jpg' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Omar Kandil</h4>
+                    <span>Security Engineer</span>
+                    <p>
+                      Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                    </p>
+                  </div>
+                </div>
+              </div>
+  
+
+          </div>
+  
+        </div>
+      </section>
+<!-- End the team Section -->
+
+{%endblock%}

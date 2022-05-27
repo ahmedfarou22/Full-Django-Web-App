@@ -1,0 +1,97 @@
+.asteriskField {
+  display: none;
+}
+.footer {
+  font-family: "montserrat", sans-serif;
+  /* background-image: url("../img/footer.png"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 564px;
+  margin-top: -5px;
+  margin-right: 2px;
+}
+.footer h5 {
+  margin-top: -19px;
+  text-align: center;
+  color: white;
+  font-size: 23px;
+  line-height: 0px;
+}
+
+.border-1 {
+  width: 100px;
+  height: 9px;
+  background: #cef5d3;
+  margin: 17px 899px;
+}
+.contact-us {
+  max-width: 600px;
+  margin: auto;
+  padding: 50px 10px;
+  overflow: hidden;
+  background-color: #cef5d3;
+  border-radius: 25px;
+}
+.contact-us-form-text {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 16px 0;
+  border: 0;
+  background-color: #cef5d3;
+  padding: 20px 40px;
+  outline: none;
+  color: rgb(0, 0, 0);
+  transition: 0.5s;
+}
+
+textarea .contact-us-form-text {
+  resize: none;
+  height: 120px;
+}
+.contact-us-form-btn {
+  float: right;
+  border: 0;
+  background: #05dd80;
+  color: #fff;
+  padding: 12px 50px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.contact-us-form-btn:hover {
+  background: #61ce70;
+}
+
+form {
+  text-align: center;
+  margin: 0 auto;
+}
+
+h3 {
+  color: rgb(180, 0, 0);
+  font-weight: 200;
+  text-align: center;
+}
+
+input[type="text"]:focus {
+  box-shadow: 5px rgba(152, 127, 19, 0.87);
+  border: 3px solid rgba(152, 127, 19, 0.87);
+}
+
+/* ============== error and redirecting messages ============== */
+
+.erroRS p {
+  color: red;
+  font-family: tahoma;
+  margin-top: 3px;
+  margin-bottom: 40px;
+  font-size: 12px;
+}
+
+/*  Error Messages */
+.input_errors {
+  box-shadow: 0 0 5px rgba(247, 33, 65, 0.37);
+  border-color: rgb(222, 17, 52);
+}

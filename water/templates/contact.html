@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block body %}
+         <!-- ======= Breadcrumbs ======= -->
+         <div class="breadcrumbs" data-aos="fade-in">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>please do not hesitate to contact us for any additional information. </p>
+            </div>
+        </div>
+        <!-- End Breadcrumbs -->
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+                <div class="row mt-5">
+                    <div class="col-lg-3"></div>
+                    <!-- edit colum from  -->
+                    <div class="col-lg-6 mt-5 mt-lg-0">
+
+                        <form action="{% url 'contact' %}" method="POST" role="form" class="php-email-form">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" pattern="[a-zA-Z0-9-]+" minlength='1' maxlength='42' required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" minlength='1' maxlength='42'required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" pattern="[a-zA-Z0-9-]+" minlength='1' maxlength='100'required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message" pattern="[a-zA-Z0-9-]+" minlength='1'  maxlength='10000' required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="text-center"> {{message}} </div>
+                            </div>
+                            <div class="text-center"><button type="submit">Send Message</button></div>
+                        </form>
+
+                    </div>
+                    <!--  -->
+                    <div class="col-lg-3"></div>
+                </div>
+            </div>
+        </section>
+        <!-- End Contact Section -->
+
+{%endblock%}

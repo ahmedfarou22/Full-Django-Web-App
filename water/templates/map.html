@@ -1,0 +1,312 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maa</title>
+
+    <!-- Favicons -->
+
+    <link href="{% static '/water/img/favicon.jpeg' %}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'water/vendor/animate.css/animate.min.css'%}" rel="stylesheet">
+    <link href="{% static 'water/vendor/aos/aos.css" rel="stylesheet'%}">
+    <link href="{% static 'water/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'water/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+    <link href="{% static 'water/vendor/boxicons/css/boxicons.min.css'%}"rel="stylesheet">
+    <link href="{% static 'water/vendor/remixicon/remixicon.css'%}" rel="stylesheet">
+    <link href="{% static 'water/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+    <link href="{% static 'water/css/style.css' %}" rel="stylesheet">
+
+
+
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 50%;
+        width: 100%;
+      }
+
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    
+    <script>
+      (() => {
+        "use strict";
+        var e = {
+            d: (o, t) => {
+              for (var n in t)
+                e.o(t, n) &&
+                  !e.o(o, n) &&
+                  Object.defineProperty(o, n, { enumerable: !0, get: t[n] });
+            },
+            o: (e, o) => Object.prototype.hasOwnProperty.call(e, o),
+            r: (e) => {
+              "undefined" != typeof Symbol &&
+                Symbol.toStringTag &&
+                Object.defineProperty(e, Symbol.toStringTag, {
+                  value: "Module",
+                }),
+                Object.defineProperty(e, "__esModule", { value: !0 });
+            },
+          },
+          o = {};
+        function t() {
+          const e = { lat: 27.286299967586874, lng: 30.038490352276284 },
+            o = new google.maps.Map(document.getElementById("map"), {
+              zoom: 4,
+              //minZoom: 6, 
+              //maxZoom: 9,
+              center: e,
+            });
+          let t = new google.maps.InfoWindow({
+            content: "Click the map to get Lat/Lng!",
+            position: e,
+          });
+          t.open(o),
+            o.addListener("click", (e) => {
+              t.close(),
+                (t = new google.maps.InfoWindow({ position: e.latLng })),
+                t.setContent(JSON.stringify(e.latLng.toJSON(), null, 2)),
+                document.getElementById('coords').value = JSON.stringify(e.latLng.toJSON(), null, 2),
+                t.open(o);
+            });
+        }
+        e.r(o), e.d(o, { initMap: () => t });
+        var n = window;
+        for (var l in o) n[l] = o[l];
+        o.__esModule && Object.defineProperty(n, "__esModule", { value: !0 });
+      })();
+      map.data.loadGeoJson('https://bitbucket.org/dimaboychev/public/raw/9bb53aba0d70875a6d2d9bd2a1eec65671ce4ae3/dc.json');
+      
+    </script>
+  
+  </head>
+  
+  <body>
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top">
+          <div class="container d-flex align-items-center">
+  
+              <a href="{% url 'home' %}" class="logo me-auto"><img src="{% static 'water/img/logo.jpeg'%}" alt="" class="img-fluid"></a>
+  
+              <nav id="navbar" class="navbar order-last order-lg-0">
+                  <ul>
+                      {% if name == 'home' %}<li><a class="active" href="{% url 'home' %}">Home</a></li>
+                      {% else %}<li><a href="{% url 'home' %}">Home</a></li>
+                      {% endif %}
+                      
+                      {% if name == 'usage' %} <li><a class="active" href="{% url 'usage' %}">Usage</a></li>
+                      {% else %}<li><a href="{% url 'usage' %}">Usage</a></li>
+                      {% endif %}
+  
+                      {% if name == 'map' %} <li><li><a class="active" href="{% url 'map' %}">Map</a></li>
+                      {% else %}<li><li><a href="{% url 'map' %}">Map</a></li>
+                      {% endif %}
+  
+                      {% if name == 'pricing' %} <li><li><a class="active" href="{% url 'pricing' %}">Pricing</a></li>
+                      {% else %}<li><li><a href="{% url 'pricing' %}">Pricing</a></li>
+                      {% endif %}
+  
+                      {% if name == 'contact' %} <li><a class="active" href="{% url 'contact' %}">Contact us</a></li>
+                      {% else %}<li><a href="{% url 'contact' %}">Contact us</a></li>
+                      {% endif %}
+                      
+                      {% if request.user.is_authenticated %}
+                      {% if name == 'account' %} 
+                      <li><a class="active" href="{% url 'account' %}">Account</a></li>
+                      {% else %}
+                      <li><a href="{% url 'account' %}">Account</a></li>
+                      {% endif %}
+                      {% endif %}
+
+
+  
+                  </ul>
+                  <i class="bi bi-list mobile-nav-toggle"></i>
+              </nav>
+              {% if request.user.is_authenticated %}
+              <a href="{% url 'logout' %}" class="get-started-btn">logout</a>
+              {% else %}
+              <a href="{% url 'login' %}" class="get-started-btn">login</a>
+              {%endif%}
+  
+          </div>
+      </header>
+      <!-- End Header -->
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+              <div class="container">
+                  <h2>Map Page</h2>
+                  <p>Click on the map to get the codrdenates, then choose the crop type from the list below <br> Note: choose cordinates inside egypt</p>
+              </div>
+          </div>
+          <!-- End Breadcrumbs -->
+
+
+
+{% comment %} =======================main section====================== {% endcomment %}
+
+    <div id="map"></div>
+    <br><br>
+  
+    {% if request.user.is_authenticated %}
+ <section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+      <div class="row mt-5">
+          <div class="col-lg-3"></div>
+          <!-- edit colum from  -->
+
+          <div class="col-lg-6 mt-5 mt-lg-0 content text-center">
+            <h4>Fill in the form to get the results</h4>
+              <form action="{% url 'map' %}" method="POST" class="php-email-form">
+                {% csrf_token %}
+
+                  <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="coords" id="coords" placeholder="cordinates" required readonly>
+                  </div>
+
+                  <div class="form-group mt-3">                        
+                    <select class="form-control" name="crop" id="subject" required>
+                      <option value="BANANA" selected>BANANA</option>
+            
+                      <option value="SOYABEAN">SOYABEAN</option>
+                      <option value="CABBAGE">CABBAGE</option>
+                      <option value="POTATO">POTATO</option>
+            
+                      <option value="MELON">MELON</option>
+                      <option value="MAIZE">MAIZE</option>
+                      <option value="CITRUS">CITRUS</option>
+            
+                      <option value="BEAN">BEAN</option>
+                      <option value="WHEAT">WHEAT</option>
+                      <option value="MUSTARD">MUSTARD</option>
+            
+                      <option value="COTTON">COTTON</option>
+                      <option value="SUGARCANE">SUGARCANE</option>
+                      <option value="TOMATO">TOMATO</option>
+                      <option value="ONION">ONION</option>
+                    </select>
+                </div>
+                  <div class="text-center"><button type="submit">Submit</button></div>
+              </form>
+
+          </div>
+          <!--  -->
+
+          <div class="col-lg-3"></div>
+      </div>
+  </div>
+</section>
+
+
+
+ {% else %}
+
+ <section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+      <div class="row mt-5">
+          <div class="col-lg-3"></div>
+          <!-- edit colum from  -->
+
+          <div class="col-lg-6 mt-5 mt-lg-0 content text-center">
+            <h5>You are not logged in please <a href='{% url 'login' %}'>Login</a> and try again</h5>
+          </div>
+          <!--  -->
+
+          <div class="col-lg-3"></div>
+      </div>
+  </div>
+</section>
+
+ {% endif %}
+
+
+
+
+
+
+{% comment %} ======================= End main section ====================== {% endcomment %}
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+          <div class="footer-top">
+              <div class="container">
+                  <div class="row">
+  
+                      <div class="col-lg-4 col-md-4 footer-contact">
+                          <h3>Maa</h3>
+                          <p>
+                              The Knowledge Hub<br> Coventry University<br><br>
+                              <strong>Our Emails:</strong> <br>
+                              <strong></strong> Salem.Salem@tkh.edu.eg<br>
+                              <strong></strong> Am00512@tkh.edu.eg<br>
+                              <strong></strong> Mohamed.Abdelaal@tkh.edu.eg<br>
+                          </p>
+                      </div>
+  
+                      <div class="col-lg-4 col-md-4 footer-links">
+                          <h4>Useful Links</h4>
+                          <ul>
+                              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}">Home</a></li>
+                              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'usage' %}">Usage</a></li>
+                              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'map' %}">Map</a></li>
+                              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact' %}">Contact</a></li>
+                          </ul>
+                      </div>
+  
+                      <div class="col-lg-4 col-md-4 footer-newsletter">
+                          <br><br>
+                          <h4>The Concept</h4>
+                          <p>To calculate the required moisture level of a given land. in order to control the amount of water used for irrigation</p>
+                          <a href="{% url 'usage' %}" class="btn-get-started">Get Started</a>
+  
+                      </div>
+  
+                  </div>
+              </div>
+          </div>
+  
+          <div class="container d-md-flex py-4">
+  
+              <div class="me-md-auto text-center text-md-start">
+                  <div class="copyright">
+                      &copy; Copyright <strong><span>Maa</span></strong>. All Rights Reserved
+                  </div>
+              </div>
+          </div>
+      </footer>
+      <!-- End Footer -->
+  
+      <div id="preloader"></div>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+      <!-- Vendor JS Files -->
+      <script src="{% static 'water/vendor/purecounter/purecounter.js' %}"></script>
+      <script src="{% static 'water/vendor/aos/aos.js'%}"></script>
+      <script src="{% static 'water/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+      <script src="{% static 'water/vendor/swiper/swiper-bundle.min.js'%}"></script>  
+      <!-- Template Main JS File -->
+      <script src="{% static 'water/js/main.js'%}"></script>
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqY-c5nEViDL6JmEiBTxAbvIzNl9nSoM&callback=initMap"></script>  
+  </body>
+</html>
+
+

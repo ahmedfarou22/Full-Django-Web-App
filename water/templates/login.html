@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block body %}
+<html>
+<head>
+<title>Login Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link  rel="stylesheet" href="{% static 'water/css/custom.css' %}" >
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<br><br><br><br>
+		<div> <img src="{% static 'water/img/logo.jpeg' %}" alt="MAA" width="160px" height="75px" ></div>
+		
+
+
+
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				{%if message%}
+				<div><p> {{message}} </p></div>
+				<br>
+				{%endif%}
+
+				<form action="{% url 'login' %}" method="POST">
+					{% csrf_token %}
+					<input class="text" type="text" name="username" placeholder="Username" required="">
+					<input class="text w3lpass" type="password" name="password" placeholder="Password" required="">
+					<input type="submit" value="login">
+				</form>
+				<p>Don't have an Account? <a href="{% url 'registration' %}"> Sign Up Now!</a></p>
+			</div>
+		</div>
+
+	</div>
+	<!-- //main -->
+</body>
+</html>
+
+{%endblock%}

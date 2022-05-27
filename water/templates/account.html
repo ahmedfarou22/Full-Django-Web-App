@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>Account Information</h2>
+          <p>Below are the Account Information. And the remaining number of searches. </p>
+        </div>
+      </div>
+      <!-- End Breadcrumbs -->
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+      <div class="row mt-5">
+        <div class="col-lg-4">
+          <div class="info">
+            <div class="address">
+              <i class="bi "></i>
+              <h4>Full Name:</h4>
+              <p>{{ user.get_full_name }}</p>
+            </div>
+
+            <div class="phone">
+                <i class="bi"></i>
+                <h4>Username:</h4>
+                <p>{{ user.username }}</p>
+              </div>
+
+            <div class="email">
+              <i class="bi"></i>
+              <h4>Email:</h4>
+              <p>
+                {%if user.get_username %}
+                {{ user.email }}
+                {% else %}
+                No email found. You may be the admin
+                {% endif %}
+                </p>
+            </div>
+
+            <div class="email">
+              <i class="bi"></i>
+              <h4>2FA:</h4>
+              <p>
+                {%if user.get_username %}
+                {{ user.email }}
+                {% else %}
+                No email found. You may be the admin
+                {% endif %}
+                </p>
+            </div>
+ 
+          </div>
+          <br><br>
+        </div>
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+                <div class="content text-center">
+                    <br><br><br>
+                  <h3>Remaining number of searches</h3>
+                  <h3>
+                    {{avsearches}}
+                  </h3>
+                  <div class="text-center">
+                    <a href="{% url 'pricing' %}" class="more-btn">Buy more<i class="bx bx-chevron-right"></i></a>
+                  </div>
+                </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}
